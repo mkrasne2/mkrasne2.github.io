@@ -1,0 +1,252 @@
+<html lang="en">
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Academy kitties </title>
+      <script type="text/javascript" src="assets/js/jquery-3.4.1.js"></script>
+      <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+      <script src="assets/bootstrap/js/popper.js"></script>
+      <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+      <script src="assets/bootstrap/js/web3.min.js"></script>
+      <script src="abi.js"></script>
+      
+    
+      <link rel="stylesheet" href="assets/css/mystyle.css">
+      <link rel="stylesheet" href="assets/css/cats.css">
+      <link rel="stylesheet" href="assets/css/colors.css">
+      <link rel="stylesheet" href="assets/css/factory.css">
+      <link rel="stylesheet" href="assets/css/frontend.css">
+      <link rel="stylesheet" href="assets/css/animations.css">
+    </head>
+      <body style="background-color:#343a40">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" id = "kitties" href="kitties.html">Mark's Kitties</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" id = "home" href="index.html">Create A Kitty <span class="sr-only">(current) </span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="collection.html">My Kitties</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id = "breeders" href="breeding.html">Breed Kitties</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id = "marketplace" href="marketplace.html">Kitty Marketplace</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        <div class="container p-5" style="margin-bottom: 10vh;">
+            <div align="center">
+            <h1 class="c-white">Kitties-Factory</h1>
+            <p class="c-white">Create your custom Kitty</p>
+        </div>
+            <div class="row">
+                <div class="col-lg-4 catBox m-2 light-b-shadow">
+                    <div class="cat">
+                        <div class="cat__ear">
+                            <div id="leftEar" class="cat__ear--left">
+                                <div class="cat__ear--left-inside"></div>
+                            </div>
+                            <div id="rightEar" class="cat__ear--right">
+                                <div class="cat__ear--right-inside"></div>
+                            </div>
+                        </div>
+    
+                        <div id="head" class="cat__head movingHead">
+                            <div id="midDot" class="cat__head-dots">
+                                <div id="leftDot" class="cat__head-dots_first"></div>
+                                <div id="rightDot" class="cat__head-dots_second"></div>
+                            </div>
+                            <div class="cat__eye">
+                                <div class="cat__eye--left">
+                                    <span class="pupil-left"></span>
+                                </div>
+                                <div class="cat__eye--right">
+                                    <span class="pupil-right"></span>
+                                </div>
+                            </div>
+                            <div id="nose" class="cat__nose"></div>
+    
+                            <div class="cat__mouth-contour"></div>
+                            <div class="cat__mouth-left"></div>
+                            <div class="cat__mouth-right"></div>
+    
+                            <div class="cat__whiskers-left"></div>
+                            <div class="cat__whiskers-right"></div>
+                        </div>
+    
+                        <div class="cat__body">
+    
+                            <div class="cat__chest"></div>
+    
+                            <div class="cat__chest_inner"></div>
+    
+    
+                            <div class="cat__paw-left"></div>
+                            <div class="cat__paw-left_inner"></div>
+    
+    
+                            <div class="cat__paw-right"></div>
+                            <div class="cat__paw-right_inner"></div>
+    
+    
+                            <div id="tail" class="cat__tail"></div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="dnaDiv" id="catDNA">
+                        <b>
+                            DNA:
+                            <!-- Colors -->
+                             <span id="dnabody"></span>
+                             <span id="dnamouth"></span>
+                             <span id="dnaeyes"></span>
+                             <span id="dnaears"></span>
+                             <span id="dnadots"></span>
+                             <span id="dnapaws"></span>
+                             <span id="dnatail"></span>
+                            
+                             <!-- Cattributes -->
+                             <span id="dnashape"></span>
+                             <span id="dnadecoration"></span>
+                             <span id="dnadecorationMid"></span>
+                             <span id="dnadecorationSides"></span>
+                             <span id="dnaanimation"></span>
+                             <span id="dnaspecial"></span>
+                        </b>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7 cattributes m-2 light-b-shadow">
+
+                    <div id="confirmation" style="display:none">
+                        <ul class="list-unstyled">
+                            <li id="ownerC"></li>
+                            <li id="IdC"></li>
+                            <li id="mIdC"></li>
+                            <li id="dIdC"></li>
+                            <li id="geneC"></li>
+                            </ul>
+                    </div>
+                    
+                    <div id="cattcollapse">
+                    <button type="button" class="btn btn-outline-primary" id="randomKitty">Create a Random Kitty</button>
+                    <button type="button" class="btn btn-outline-secondary" id="defaultKitty">Default Kitty</button>
+                    <button type="button" class="btn btn-outline-success" id="newKitty" onclick="createKitty()">Create a New Kitty</button>
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                          <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                              <button class="btn " type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Cat Colors
+                              </button>
+                            </h2>
+                          </div>
+    
+    <!-- Cat colors -->
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          
+        
+    <div id="catColors">
+                    <div class="form-group">
+                        <label for="formControlRange"><b>Head and body</b><span class="badge badge-dark ml-2" id="headcode"></span></label>
+                        <input type="range" min="10" max="98" class="form-control-range" id="bodycolor">
+                    </div>
+                    <div class="form-group">
+                        <label for="formControlRange"><b>Mouth</b><span class="badge badge-dark ml-2" id="mouthcode"></span></label>
+                        <input type="range" min="10" max="98" class="form-control-range" id="mouthcolor">
+                    </div>
+                    <div class="form-group">
+                        <label for="formControlRange"><b>Eyes</b><span class="badge badge-dark ml-2" id="eyecode"></span></label>
+                        <input type="range" min="10" max="98" class="form-control-range" id="eyescolor">
+                    </div>
+                    <div class="form-group">
+                        <label for="formControlRange"><b>Ears</b><span class="badge badge-dark ml-2" id="earcode"></span></label>
+                        <input type="range" min="10" max="98" class="form-control-range" id="earcolor">
+                    </div>
+                    <div class="form-group">
+                        <label for="formControlRange"><b>Head Dots</b><span class="badge badge-dark ml-2" id="dotcode"></span></label>
+                        <input type="range" min="10" max="98" class="form-control-range" id="dotcolor">
+                    </div>
+                    <div class="form-group">
+                        <label for="formControlRange"><b>Paws</b><span class="badge badge-dark ml-2" id="pawcode"></span></label>
+                        <input type="range" min="10" max="98" class="form-control-range" id="pawcolor">
+                    </div>
+                    <div class="form-group">
+                        <label for="formControlRange"><b>Tail</b><span class="badge badge-dark ml-2" id="tailcode"></span></label>
+                        <input type="range" min="10" max="98" class="form-control-range" id="tailcolor">
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h2 class="mb-0">
+            <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Cat Attributes
+            </button>
+          </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div class="card-body">
+              
+            
+                <div id="catAttributes">
+                    <div class="form-group">
+                        <label for="formControlRange"><b>Eye Shape</b><span class="badge badge-dark ml-2" id="eyeName"></span></label>
+                        <input type="range" min="1" max="7" class="form-control-range" id="eyeshape">
+                    </div>
+                    <div class="form-group">
+                        <label for="formControlRange"><b>Dot Decoration</b><span class="badge badge-dark ml-2" id="dotDecName"></span></label>
+                        <input type="range" min="1" max="3" class="form-control-range" id="dotdec">
+                    </div>
+                    <div class="form-group">
+                        <label for="formControlRange"><b>Middle Dot</b><span class="badge badge-dark ml-2" id="midDecName"></span></label>
+                        <input type="range" min="1" max="3" class="form-control-range" id="middec">
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="formControlRange"><b>Side Dots</b><span class="badge badge-dark ml-2" id="sideDecName"></span></label>
+                        <input type="range" min="1" max="3" class="form-control-range" id="sidedec">
+                    </div>
+                    <div class="form-group">
+                        <label for="formControlRange"><b>Animation</b><span class="badge badge-dark ml-2" id="animationName"></span></label>
+                        <input type="range" min="1" max="4" class="form-control-range" id="animationdec">
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+                </div>
+    
+                </div>
+                <br>
+    
+            </div>
+    
+    
+    
+        </div>
+        <footer align="left">
+            <p>Mark's Kitties 2022</p>
+        </footer>
+    
+      </body>
+      <script src="index.js"></script>
+      <script src="assets/js/colors.js"></script>
+      <script src="assets/js/catSettings.js"></script>
+      <script src="assets/js/catFactory.js"></script>
+      
+    </html>
+    
