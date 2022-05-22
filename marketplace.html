@@ -1,0 +1,257 @@
+<html lang="en">
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Academy kitties </title>
+      <script type="text/javascript" src="assets/js/jquery-3.4.1.js"></script>
+      <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+      <script src="assets/bootstrap/js/popper.js"></script>
+      <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+      <script src="assets/bootstrap/js/web3.min.js"></script>
+      
+      <script src="abi.js"></script>
+      
+      
+    
+      <link rel="stylesheet" href="assets/css/mystyle.css">
+      <link rel="stylesheet" href="assets/css/cats.css">
+      <link rel="stylesheet" href="assets/css/colors.css">
+      <link rel="stylesheet" href="assets/css/factory.css">
+      <link rel="stylesheet" href="assets/css/frontend.css">
+      <link rel="stylesheet" href="assets/css/animations.css">
+    </head>
+      <body style="background-color:#343a40">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" id = "kitties" href="kitties.html">Mark's Kitties</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item ">
+                  <a class="nav-link" id = "home" href="index.html">Create A Kitty </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id = "collect" href="collection.html">My Kitties</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id = "breeders" href="breeding.html">Breed Kitties</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" id = "marketplace" href="marketplace.html">Kitty Marketplace<span class="sr-only">(current)</span></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        <div class="container p-5" style="margin-bottom: 10vh;">
+            <div align="center">
+            <h1 class="c-white">Kitties for Sale</h1>
+            <p class="c-white">View all Kitties Available for Sale</p>
+        </div>
+        <div class="container p-4" style="min-height:1000px; background-color:#cddfe2">
+        
+            <div id="collapse1">
+            <div class="row">
+                
+            <div class="col-md-4" id="creatable" style="display:none">
+                <div class="card mb-4 box-shadow">
+
+                    <div style="transform: scale(70%); margin: auto; margin-bottom: 5%">
+                    <div class="cat">
+                        <div class="cat__ear">
+                            <div id="leftEar" class="cat__ear--left" style="background: rgb(255, 204, 128);">
+                                <div class="cat__ear--left-inside"></div>
+                            </div>
+                            <div id="rightEar" class="cat__ear--right" style="background: rgb(255, 204, 128);">
+                                <div class="cat__ear--right-inside"></div>
+                            </div>
+                        </div>
+    
+                        <div id="head" class="cat__head" style="background: rgb(255, 204, 128);">
+                            <div id="midDot" class="cat__head-dots" style="background: rgb(255, 243, 224); transform: rotate(0deg); height: 48px; width: 14px; top: 1px; border-radius: 0px 0px 50% 50%;">
+                                <div id="leftDot" class="cat__head-dots_first" style="background: rgb(255, 243, 224); height: 35px; transform: rotate(0deg); width: 14px; top: 1px; border-radius: 50% 0px 50% 50%;"></div>
+                                <div id="rightDot" class="cat__head-dots_second" style="background: rgb(255, 243, 224); height: 35px; transform: rotate(0deg); width: 14px; top: 1px; border-radius: 0px 50% 50%;"></div>
+                            </div>
+                            <div class="cat__eye">
+                                <div class="cat__eye--left">
+                                    <span class="pupil-left" style="background: rgb(38, 45, 43); border: none; border-radius: 50%;"></span>
+                                </div>
+                                <div class="cat__eye--right">
+                                    <span class="pupil-right" style="background: rgb(38, 45, 43); border: none; border-radius: 50%;"></span>
+                                </div>
+                            </div>
+                            <div id="nose" class="cat__nose"></div>
+    
+                            <div class="cat__mouth-contour" style="background: rgb(255, 243, 224);"></div>
+                            <div class="cat__mouth-left"></div>
+                            <div class="cat__mouth-right"></div>
+    
+                            <div class="cat__whiskers-left"></div>
+                            <div class="cat__whiskers-right"></div>
+                        </div>
+    
+                        <div class="cat__body">
+    
+                            <div class="cat__chest" style="background: rgb(255, 204, 128);"></div>
+    
+                            <div class="cat__chest_inner"></div>
+    
+    
+                            <div class="cat__paw-left" style="background: rgb(255, 204, 128);"></div>
+                            <div class="cat__paw-left_inner"></div>
+    
+    
+                            <div class="cat__paw-right" style="background: rgb(255, 204, 128);"></div>
+                            <div class="cat__paw-right_inner"></div>
+    
+    
+                            <div id="tail" class="cat__tail" style="background: rgb(255, 204, 128);"></div>
+                        </div>
+                    </div>
+                </div>
+                  <div class="card-body">
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    
+                    <p id="salePrice">Generation: </p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary" id="viewcat" onclick="viewKitty(event)">View Sale</button>
+                        
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+    
+    
+            </div>
+
+
+        </div>
+            
+
+        <div id="kittyDetail" style="display:none">
+          <button type="button" class="btn btn-sm btn-outline-primary" id="back" style="margin-bottom: 2%;" onclick="goBack()">Back to Kitty Library</button>
+          
+            <div class="col-lg-8 catBox m-2 light-b-shadow" style="
+            max-width: 100%;">
+                <div class="cat" style="margin: auto; width: 300px;padding-bottom: 20%;">
+                    <div class="cat__ear">
+                        <div id="leftEar" class="cat__ear--left">
+                            <div class="cat__ear--left-inside"></div>
+                        </div>
+                        <div id="rightEar" class="cat__ear--right">
+                            <div class="cat__ear--right-inside"></div>
+                        </div>
+                    </div>
+
+                    <div id="head" class="cat__head movingHead">
+                        <div id="midDot" class="cat__head-dots">
+                            <div id="leftDot" class="cat__head-dots_first"></div>
+                            <div id="rightDot" class="cat__head-dots_second"></div>
+                        </div>
+                        <div class="cat__eye">
+                            <div class="cat__eye--left">
+                                <span class="pupil-left"></span>
+                            </div>
+                            <div class="cat__eye--right">
+                                <span class="pupil-right"></span>
+                            </div>
+                        </div>
+                        <div id="nose" class="cat__nose"></div>
+
+                        <div class="cat__mouth-contour"></div>
+                        <div class="cat__mouth-left"></div>
+                        <div class="cat__mouth-right"></div>
+
+                        <div class="cat__whiskers-left"></div>
+                        <div class="cat__whiskers-right"></div>
+                    </div>
+
+                    <div class="cat__body">
+
+                        <div class="cat__chest"></div>
+
+                        <div class="cat__chest_inner"></div>
+
+
+                        <div class="cat__paw-left"></div>
+                        <div class="cat__paw-left_inner"></div>
+
+
+                        <div class="cat__paw-right"></div>
+                        <div class="cat__paw-right_inner"></div>
+
+
+                        <div id="tail" class="cat__tail"></div>
+                    </div>
+                </div>
+                <br>
+
+                <div id = 'attributes'>
+                  <li id="kittenK">Generation: </li>
+                  
+                  <li id="geneK">Genes: </li>
+                  
+                  <li id="fatherK">Father: </li>
+                  
+                  <li id="motherK">Mother: </li>
+                  
+                  <li id="birthtimeK">Birth Time: </li>
+                  
+                  </div>
+
+                <div class="dnaDiv" id="catDNA"> DNA: 
+                <!-- Colors -->
+                <span id="dnabody"></span>
+                <span id="dnamouth"></span>
+                <span id="dnaeyes"></span>
+                <span id="dnaears"></span>
+                <span id="dnadots"></span>
+                <span id="dnapaws"></span>
+                <span id="dnatail"></span>
+               
+                <!-- Cattributes -->
+                <span id="dnashape"></span>
+                <span id="dnadecoration"></span>
+                <span id="dnadecorationMid"></span>
+                <span id="dnadecorationSides"></span>
+                <span id="dnaanimation"></span>
+                <span id="dnaspecial"></span>
+                <br>
+                
+               
+                
+                
+              </div>
+              
+            
+            
+            
+            </div>
+            <div class="text-center">
+            <span id="priceK" style="font-style:oblique">Owner: </span>
+            <br>
+          </div>
+            <div class="text-center">
+              
+              <button type="button" class="btn btn-primary" id="purchaseCat">Purchase Kitty</button>
+            </div>
+
+        </div>
+
+        </div>
+        <footer align="left">
+            <p>Mark's Kitties 2022</p>
+        </footer>
+    
+      </body>
+      <script src="marketplace.js"></script>
+      <script src="assets/js/colors.js"></script>
+      <script src="assets/js/catSettings.js"></script>
+      <script src="assets/js/factory2.js"></script>
+      
+    </html>
