@@ -5,8 +5,8 @@ var web3 = new Web3(Web3.givenProvider);
 var instance;
 var marketInstance;
 var user;
-var contractAddress = "0x075796d08D0d9d2Be09589b0c046D70C5C1fc542";
-var marketAddress = "0xA364bA467abaF29105eA35117220371f3B88E284";
+var contractAddress = "0xc530488a5ba73DeA4db6b7D990438532146ACEC9";
+var marketAddress = "0x89346827c5EDa6C6cBc8Be2e38937aee6940CC84";
 
 $('#kitties').click(function() {
     window.location.reload();
