@@ -46,7 +46,7 @@ module.exports = {
     },
 
     ropsten: {
-      provider: () => new HDWalletProvider(mnemonic, 'https://speedy-nodes-nyc.moralis.io/0abf268049348e35d9ef7b8d/eth/ropsten'),
+      provider: () => new HDWalletProvider(mnemonic, 'your node here'),
       network_id: 3,
       gas: 5500000,
       confirmations: 2,
