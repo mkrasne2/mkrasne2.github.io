@@ -67,7 +67,7 @@ $(document).ready(function(){
                                     var d = new Date();
                                     d.setMinutes(d.getMinutes()-15);
                                     
-                                    if(Math.round(Number(d)/1000) < Number(value.birthTime)){
+                                    if(Math.round(Number(d)/1000) < Number(value.birthTime) && value.generation > 0){
                                         
 
                                         var last = value.genes.slice(value.genes.length - 6, value.genes.length);
